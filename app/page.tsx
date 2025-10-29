@@ -1,6 +1,6 @@
 "use client";
 // app/page.tsx
-import HomePage from '@/components/home';
+import HomePage from '@/components/Home';
 import Loading from '@/components/Loading'
 import { useEffect, useState } from 'react';
 import {getDishes} from '@/services/dishService';
