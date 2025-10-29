@@ -10,6 +10,7 @@ export default function HomePage({ dishes }) {
   const { language } = useLanguage();
   const [filteredDishes, setFilteredDishes] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('All');
+  
   const [isLoading, setIsLoading] = useState(true);
 
   // Get unique categories

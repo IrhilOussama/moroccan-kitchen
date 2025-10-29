@@ -9,8 +9,9 @@ const Footer = () => {
     en: {
       about: "About Moroccan Cuisine",
       contact: "Contact Us",
-      privacy: "Privacy Policy",
       
+      privacy: "Privacy Policy",
+
       terms: "Terms of Service",
       rights: "All rights reserved"
     },
