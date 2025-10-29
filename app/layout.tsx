@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
-import Footer from '@/pages/Footer';
+import Footer from '@/components/Footer';
 import { LanguageProvider } from '@/context/LanguageContext';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -27,7 +27,7 @@ export default function RootLayout({
           <main className="min-h-[calc(100vh-64px)]">
             {children}
           </main>
-          {/* <Footer /> */}
+          <Footer />
         </LanguageProvider>
       </body>
     </html>

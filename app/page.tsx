@@ -1,6 +1,6 @@
 "use client";
 // app/page.tsx
-import HomePage from '@/pages/home';
+import HomePage from '@/components/home';
 import Loading from '@/components/Loading'
 import { useEffect, useState } from 'react';
 import {getDishes} from '@/services/dishService';
@@ -33,19 +33,7 @@ export default function Home() {
     const fetchDishes = async () => {
       try {
         const data = await getDishes();
-        if (Array.isArray(data)) {
-          const dishesArray = data.map((d: Partial<Dish>) => ({
-            name: d.name ?? { en: '', fr: '', ar: '' },
-            description: d.description ?? { en: [], fr: [], ar: [] },
-            ingredients: d.ingredients ?? { en: '', fr: '', ar: '' },
-            origin: d.origin ?? { en: '', fr: '', ar: '' },
-            category: d.category ?? '',
-            imageUrl: d.imageUrl ?? ''
-          })) as Dish[];
-          setDishes(dishesArray);
-        } else {
-          setDishes([]);
-        }
+        setDishes(data);
       } catch (error) {
         console.error(error);
       } finally {
