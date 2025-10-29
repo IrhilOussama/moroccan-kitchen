@@ -26,14 +26,26 @@ export interface Dish {
 }
 
 export default function Home() {
-  const [dishes, setDishes] = useState([]);
+  const [dishes, setDishes] = useState<Dish[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchDishes = async () => {
       try {
         const data = await getDishes();
-        setDishes(data);
+        if (Array.isArray(data)) {
+          const dishesArray = data.map((d: Partial<Dish>) => ({
+            name: d.name ?? { en: '', fr: '', ar: '' },
+            description: d.description ?? { en: [], fr: [], ar: [] },
+            ingredients: d.ingredients ?? { en: '', fr: '', ar: '' },
+            origin: d.origin ?? { en: '', fr: '', ar: '' },
+            category: d.category ?? '',
+            imageUrl: d.imageUrl ?? ''
+          })) as Dish[];
+          setDishes(dishesArray);
+        } else {
+          setDishes([]);
+        }
       } catch (error) {
         console.error(error);
       } finally {

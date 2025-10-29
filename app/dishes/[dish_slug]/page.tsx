@@ -1,4 +1,4 @@
-// app/dish/[dish_title]/page.tsx
+// app/dish/[dish_slug]/page.tsx
 import { notFound } from 'next/navigation';
 import { getDishBySlug } from '@/services/dishService';
 import DishDetail from '@/components/DishDetail';
@@ -6,9 +6,10 @@ import DishDetail from '@/components/DishDetail';
 export async function generateMetadata({
   params,
 }: {
-  params: { dish_slug: string }
+  params: Promise<{ dish_slug: string }>
 }) {
-  const dish = await getDishBySlug(params.dish_slug);
+  const { dish_slug } = await params;
+  const dish = await getDishBySlug(dish_slug);
   if (!dish) notFound();
 
   return {
@@ -25,9 +26,10 @@ export async function generateMetadata({
 export default async function DishPage({
   params,
 }: {
-  params: { dish_slug: string }
+  params: Promise<{ dish_slug: string }>
 }) {
-  const dish = await getDishBySlug(params.dish_slug);
+  const { dish_slug } = await params;
+  const dish = await getDishBySlug(dish_slug);
   if (!dish) notFound();
 
   return <DishDetail dish={dish} />;
