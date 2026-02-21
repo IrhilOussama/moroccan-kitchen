@@ -9,9 +9,20 @@ import { LanguageProvider } from '@/context/LanguageContext';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Moroccan Culinary Treasures',
-  description: 'Discover authentic Moroccan recipes and cooking traditions',
-  keywords: ['Moroccan food', 'tagine recipes', 'couscous', 'traditional dishes'],
+  title: 'Moroccan Kitchen | المطبخ المغربي',
+  description: 'Discover authentic Moroccan Kitchen recipes and cooking traditions. اكتشف وصفات المطبخ المغربي التقليدية وأسرار الطبخ المغربي الأصيل.',
+  keywords: [
+    'Moroccan Kitchen',
+    'Moroccan food',
+    'tagine recipes',
+    'couscous',
+    'traditional dishes',
+    'المطبخ المغربي',
+    'اكل مغربي',
+    'وصفات مغربية',
+    'طاجين',
+    'كسكس'
+  ],
 };
 
 export default function RootLayout({
